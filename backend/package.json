@@ -1,0 +1,20 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "A backend for twitch finder, a twitch api app",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.27.2",
+        "dotenv": "^16.0.1",
+        "express": "^4.18.1",
+        "got": "^12.0.4",
+        "node-cron": "^3.0.0",
+        "redis": "^4.1.0",
+        "shelljs": "^0.8.5"
+    }
+}

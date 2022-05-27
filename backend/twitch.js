@@ -36,4 +36,4 @@ function validateToken() {
         });
 }
 
-module.exports = { getToken, validateToken };
+// module.exports = { getToken, validateToken };

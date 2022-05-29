@@ -19,6 +19,7 @@ const app = express();
 app.use(express.json());
 
 // Routing
+// SET VALUE
 app.post("/", async (req, res) => {
     // await client.connect();
     const { key, value } = req.body;
@@ -26,6 +27,7 @@ app.post("/", async (req, res) => {
     res.json(response);
 });
 
+// GET VALUE
 app.get("/", async (req, res) => {
     const { key } = req.body;
     const response = await client.get("name");

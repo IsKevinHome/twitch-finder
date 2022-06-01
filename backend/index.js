@@ -17,7 +17,7 @@ client.connect();
 // Validation middleware
 app.use((req, res, next) => {
     // this can be put in a node module.
-    cron.schedule("*/1 * * * *", () => {
+    cron.schedule("*/15 * * * *", () => {
         validateToken();
     });
     next();

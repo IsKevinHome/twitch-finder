@@ -30,7 +30,9 @@ const Home = () => {
                                 gutterBottom
                                 style={{ fontFamily: "dimis" }}
                             >
-                                Search Twitch Channels
+                                Search{" "}
+                                <span style={{ color: "#6441A4" }}>Twitch</span>{" "}
+                                Channels
                             </Typography>
 
                             <Typography variant="body1" gutterBottom>
@@ -38,13 +40,17 @@ const Home = () => {
                                 channels to see who is live and some other
                                 information.
                             </Typography>
+                            <ChannelSearch />
                         </Paper>
-                        <ChannelSearch />
                     </Grid>
 
                     <Grid item xs={12} md={6} align="center">
                         <Paper elevation={0} sx={{ maxWidth: 500 }}>
-                            <img src={gameControl} style={{ width: "80%" }} />
+                            <img
+                                src={gameControl}
+                                alt="game controllers dangling"
+                                style={{ width: "80%" }}
+                            />
                         </Paper>
                     </Grid>
                 </Grid>

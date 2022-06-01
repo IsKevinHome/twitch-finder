@@ -54,7 +54,10 @@ export default function ElevateAppBar(props) {
                                 color: "black",
                             }}
                         >
-                            Twitch Finder
+                            <span style={{ color: "#6441A4", marginRight: 10 }}>
+                                Twitch
+                            </span>
+                            Finder
                         </Typography>
                         <Box sx={{ flexGrow: 1 }}></Box>
 

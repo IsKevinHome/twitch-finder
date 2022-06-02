@@ -5,6 +5,7 @@ import ChannelSearch from "../channels/ChannelSearch";
 import gameControl from "../../assets/photos/clipart.png";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import ChannelResults from "../channels/ChannelResults";
 
 const Home = () => {
     return (
@@ -55,6 +56,7 @@ const Home = () => {
                     </Grid>
                 </Grid>
             </Box>
+            <ChannelResults />
         </>
     );
 };

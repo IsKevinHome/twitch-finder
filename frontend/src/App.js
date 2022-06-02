@@ -1,11 +1,14 @@
 import Navbar from "./components/layout/Navbar";
 import Home from "./components/pages/Home";
+import { TwitchProvider } from "./context/TwitchContext";
 
 function App() {
     return (
         <>
-            <Navbar />
-            <Home />
+            <TwitchProvider>
+                <Navbar />
+                <Home />
+            </TwitchProvider>
         </>
     );
 }

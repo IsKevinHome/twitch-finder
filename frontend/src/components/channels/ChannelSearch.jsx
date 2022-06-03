@@ -11,8 +11,8 @@ import TwitchContext from "../../context/TwitchContext";
 import axios from "axios";
 
 const ChannelSearch = () => {
-    const { text, setText } = useContext(TwitchContext);
-    const { channels, setChannels } = useContext(TwitchContext);
+    const { text, setText, channels, setChannels, setChannelFound } =
+        useContext(TwitchContext);
 
     const searchChannels = async (text) => {
         const response = await axios
@@ -20,8 +20,14 @@ const ChannelSearch = () => {
             .then((response) => {
                 setChannels(response.data);
                 console.log(response.data);
-                // return response.data;
-            });
+
+                if (response.data.length === 0) {
+                    setChannelFound(false);
+                } else {
+                    setChannelFound(true);
+                }
+            })
+            .catch((e) => console.log(e));
     };
 
     function handleChange(e) {
@@ -47,6 +53,12 @@ const ChannelSearch = () => {
                     </InputLabel>
                     <OutlinedInput
                         // type={values.showPassword ? "text" : "password"}
+                        onKeyPress={(e) => {
+                            if (e.key === "Enter") {
+                                handleSubmit();
+                                // console.log(e.target.value);
+                            }
+                        }}
                         value={text}
                         onChange={handleChange}
                         endAdornment={
@@ -58,8 +70,6 @@ const ChannelSearch = () => {
                                     aria-label="toggle"
                                     // SET THE ON CLICK TO CHANGE STATE
                                     onClick={handleSubmit}
-                                    // onClick={handleClickShowPassword}
-                                    // onMouseDown={handleMouseDownPassword}
                                     edge="end"
                                 >
                                     <SearchIcon />

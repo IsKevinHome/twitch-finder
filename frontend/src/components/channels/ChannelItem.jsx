@@ -25,7 +25,10 @@ const ChannelItem = ({ channel }) => {
                 }}
                 elevation={3}
             >
-                <CardActionArea>
+                <CardActionArea
+                    href={`https://www.twitch.tv/${channel.broadcaster_login}`}
+                    target="none"
+                >
                     <CardMedia
                         component="img"
                         height="140"

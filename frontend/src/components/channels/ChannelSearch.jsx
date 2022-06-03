@@ -8,14 +8,31 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 //
 import TwitchContext from "../../context/TwitchContext";
+import axios from "axios";
 
 const ChannelSearch = () => {
     const { text, setText } = useContext(TwitchContext);
+    const { channels, setChannels } = useContext(TwitchContext);
+
+    const searchChannels = async (text) => {
+        const response = await axios
+            .get(`http://localhost:5000/search/${text}}`)
+            .then((response) => {
+                setChannels(response.data);
+                console.log(response.data);
+                // return response.data;
+            });
+    };
 
     function handleChange(e) {
         setText(e.target.value);
     }
-    async function handleSubmit(e) {}
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const data = await searchChannels(text);
+        setText("");
+    }
     return (
         <>
             <Box sx={{ width: 500, maxWidth: "100%", pt: 2 }}>
@@ -30,7 +47,7 @@ const ChannelSearch = () => {
                     </InputLabel>
                     <OutlinedInput
                         // type={values.showPassword ? "text" : "password"}
-                        // value={values.password}
+                        value={text}
                         onChange={handleChange}
                         endAdornment={
                             <InputAdornment
@@ -39,6 +56,8 @@ const ChannelSearch = () => {
                             >
                                 <IconButton
                                     aria-label="toggle"
+                                    // SET THE ON CLICK TO CHANGE STATE
+                                    onClick={handleSubmit}
                                     // onClick={handleClickShowPassword}
                                     // onMouseDown={handleMouseDownPassword}
                                     edge="end"

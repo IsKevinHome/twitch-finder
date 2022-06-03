@@ -8,63 +8,52 @@ import ChannelItem from "./ChannelItem";
 
 const ChannelResults = () => {
     return (
-        <Box>
+        <Box sx={{ flexGrow: 1 }}>
             <Grid
                 container
-                spacing={2}
+                spacing={3}
                 direction="row"
                 justifyContent="center"
                 alignItems="center"
                 sx={{ textAlign: "center" }}
             >
-                <Grid item xs={3}>
+                {/* NO PARAMS ON GRID ITEM, KLEEP IT LIKE THIS BUT MAP */}
+                <Grid item>
+                    <ChannelItem />
+                </Grid>{" "}
+                <Grid item>
+                    <ChannelItem />
+                </Grid>{" "}
+                <Grid item>
                     <ChannelItem />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item>
                     <ChannelItem />
                 </Grid>{" "}
-                <Grid item xs={3}>
+                <Grid item>
                     <ChannelItem />
                 </Grid>{" "}
-                <Grid item xs={3}>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item xs={3}>
+                <Grid item>
                     <ChannelItem />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item>
                     <ChannelItem />
                 </Grid>{" "}
-                <Grid item xs={3}>
+                <Grid item>
                     <ChannelItem />
                 </Grid>{" "}
-                <Grid item xs={3}>
+                <Grid item>
                     <ChannelItem />
                 </Grid>{" "}
-                <Grid item xs={3}>
+                <Grid item>
+                    <ChannelItem />
+                </Grid>{" "}
+                <Grid item>
+                    <ChannelItem />
+                </Grid>{" "}
+                <Grid item>
                     <ChannelItem />
                 </Grid>
-                <Grid item xs={3}>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item xs={3}>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item xs={3}>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item xs={3}>
-                    <ChannelItem />
-                </Grid>
-                <Grid item xs={3}>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item xs={3}>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item xs={3}>
-                    <ChannelItem />
-                </Grid>{" "}
             </Grid>
         </Box>
     );

@@ -1,4 +1,7 @@
+import { useContext } from "react";
+import TwitchContext from "../../context/TwitchContext";
 import Typography from "@mui/material/Typography";
+
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import ChannelSearch from "../channels/ChannelSearch";
@@ -8,6 +11,8 @@ import Paper from "@mui/material/Paper";
 import ChannelResults from "../channels/ChannelResults";
 
 const Home = () => {
+    const { text } = useContext(TwitchContext);
+
     return (
         <>
             <CssBaseline />

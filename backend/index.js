@@ -3,6 +3,7 @@ const express = require("express");
 const redis = require("redis");
 const axios = require("axios").default;
 const app = express();
+var cors = require("cors");
 var cron = require("node-cron");
 require("dotenv").config();
 
@@ -14,6 +15,8 @@ const client = redis.createClient(REDIS_PORT);
 client.connect();
 
 // MIDDLEWARE
+app.use(cors());
+
 // Validation middleware
 app.use((req, res, next) => {
     // this can be put in a node module.

@@ -11,7 +11,7 @@ const channel = {
     game_id: "11989",
     game_name: "StarCraft",
     id: "6896654",
-    is_live: false,
+    is_live: true,
     tag_ids: [],
     thumbnail_url:
         "https://static-cdn.jtvnw.net/jtv_user_pictures/artosis-profile_image-dc47ab8f7ae1f67b-300x300.jpeg",
@@ -19,12 +19,20 @@ const channel = {
     started_at: "",
 };
 
-//  add a link to channel]
-// live marker
+let badgeColor = channel.is_live ? "red" : "#d32f2f";
 
 const ChannelItem = () => {
     return (
-        <Badge badgeContent={"LIVE"} color="error">
+        <Badge
+            badgeContent={channel.is_live ? "LIVE" : "OFFLINE"}
+            sx={{
+                "& .MuiBadge-badge": {
+                    color: "white",
+                    backgroundColor: badgeColor,
+                },
+            }}
+            // color={channel.is_live ? "error" : "warning"}
+        >
             <Card
                 sx={{
                     width: 200,

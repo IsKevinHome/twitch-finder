@@ -4,10 +4,12 @@ const TwitchContext = createContext();
 
 export function TwitchProvider({ children }) {
     const [text, setText] = useState("");
-    const [users, setUsers] = useState("");
+    const [channels, setChannels] = useState([]);
 
     return (
-        <TwitchContext.Provider value={{ text, setText }}>
+        <TwitchContext.Provider
+            value={{ text, setText, channels, setChannels }}
+        >
             {children}
         </TwitchContext.Provider>
     );

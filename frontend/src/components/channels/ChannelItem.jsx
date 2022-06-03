@@ -4,21 +4,6 @@ import CardMedia from "@mui/material/CardMedia";
 import { Button, CardActionArea, CardActions, Badge } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
-// const channel = {
-//     broadcaster_language: "en",
-//     broadcaster_login: "artosis",
-//     display_name: "Artosis",
-//     game_id: "11989",
-//     game_name: "StarCraft",
-//     id: "6896654",
-//     is_live: true,
-//     tag_ids: [],
-//     thumbnail_url:
-//         "https://static-cdn.jtvnw.net/jtv_user_pictures/artosis-profile_image-dc47ab8f7ae1f67b-300x300.jpeg",
-//     title: "It's Morbin Time ~ !CORSAIR ~ !gibbon",
-//     started_at: "",
-// };
-
 const ChannelItem = ({ channel }) => {
     let badgeColor = channel.is_live ? "red" : "#121212";
 
@@ -31,7 +16,6 @@ const ChannelItem = ({ channel }) => {
                     backgroundColor: badgeColor,
                 },
             }}
-            // color={channel.is_live ? "error" : "warning"}
         >
             <Card
                 sx={{

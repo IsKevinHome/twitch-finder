@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import TwitchContext from "../../context/TwitchContext";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ChannelItem from "./ChannelItem";
 
@@ -23,9 +21,9 @@ const ChannelResults = () => {
                 {/* <Grid item>
                     <ChannelItem />
                 </Grid> */}
-                {channels.map((channel) => (
+                {channels.map((res) => (
                     <Grid item>
-                        <ChannelItem key={channel.id} channel={channel} />
+                        <ChannelItem channel={res} />
                     </Grid>
                 ))}
             </Grid>

@@ -11,7 +11,12 @@ import Paper from "@mui/material/Paper";
 import ChannelResults from "../channels/ChannelResults";
 
 const Home = () => {
-    const { text } = useContext(TwitchContext);
+    const { text, channels } = useContext(TwitchContext);
+
+    const minHeightConditional =
+        channels.length < 1 ? "calc(100vh - 64px" : "calc(50vh - 64px";
+
+    const justifyHeightConditional = channels.length < 1 ? "center" : "left";
 
     return (
         <>
@@ -21,9 +26,9 @@ const Home = () => {
                     container
                     spacing={2}
                     direction="row"
-                    justifyContent="center"
+                    justifyContent={justifyHeightConditional}
                     alignItems="center"
-                    style={{ minHeight: "calc(100vh - 64px" }}
+                    style={{ minHeight: minHeightConditional }}
                 >
                     <Grid item xs={12} md={6} align="center">
                         <Paper
@@ -49,16 +54,18 @@ const Home = () => {
                             <ChannelSearch />
                         </Paper>
                     </Grid>
-
-                    <Grid item xs={12} md={6} align="center">
-                        <Paper elevation={0} sx={{ maxWidth: 500 }}>
-                            <img
-                                src={gameControl}
-                                alt="game controllers dangling"
-                                style={{ width: "80%" }}
-                            />
-                        </Paper>
-                    </Grid>
+                    {/* CONDITIONAL FOR IMAGE APPEARING AT HOME PAGE */}
+                    {channels.length < 1 ? (
+                        <Grid item xs={12} md={6} align="center">
+                            <Paper elevation={0} sx={{ maxWidth: 500 }}>
+                                <img
+                                    src={gameControl}
+                                    alt="game controllers dangling"
+                                    style={{ width: "80%" }}
+                                />
+                            </Paper>
+                        </Grid>
+                    ) : null}
                 </Grid>
             </Box>
             <ChannelResults />

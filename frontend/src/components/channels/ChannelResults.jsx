@@ -7,6 +7,8 @@ import Grid from "@mui/material/Grid";
 import ChannelItem from "./ChannelItem";
 
 const ChannelResults = () => {
+    const { channels } = useContext(TwitchContext);
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid
@@ -18,42 +20,14 @@ const ChannelResults = () => {
                 sx={{ textAlign: "center" }}
             >
                 {/* NO PARAMS ON GRID ITEM, KLEEP IT LIKE THIS BUT MAP */}
-                <Grid item>
+                {/* <Grid item>
                     <ChannelItem />
-                </Grid>{" "}
-                <Grid item>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item>
-                    <ChannelItem />
-                </Grid>
-                <Grid item>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item>
-                    <ChannelItem />
-                </Grid>
-                <Grid item>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item>
-                    <ChannelItem />
-                </Grid>{" "}
-                <Grid item>
-                    <ChannelItem />
-                </Grid>
+                </Grid> */}
+                {channels.map((channel) => (
+                    <Grid item>
+                        <ChannelItem key={channel.id} channel={channel} />
+                    </Grid>
+                ))}
             </Grid>
         </Box>
     );

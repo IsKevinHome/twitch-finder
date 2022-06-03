@@ -29,7 +29,7 @@ const ChannelSearch = () => {
     }
 
     async function handleSubmit(e) {
-        e.preventDefault();
+        // e.preventDefault();
         const data = await searchChannels(text);
         setText("");
     }

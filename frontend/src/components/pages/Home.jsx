@@ -18,8 +18,9 @@ const Home = () => {
 
     const justifyHeightConditional = channels.length < 1 ? "center" : "left";
 
+    // RENDER IMAGE
     let image;
-    if (channels.length < 1 && channelFound) {
+    if (channels.length < 1 && !channelFound) {
         image = (
             <Grid item xs={12} md={6} align="center">
                 <Paper elevation={0} sx={{ maxWidth: 500 }}>
@@ -35,6 +36,19 @@ const Home = () => {
         image = null;
     } else {
         image = null;
+    }
+    // RENDER ERROR MESSAGE
+    let errorMessage;
+    if (channelFound === undefined) {
+        errorMessage = null;
+    } else if (!channelFound) {
+        errorMessage = (
+            <Typography variant="subtitle2" color="error">
+                No channels match that query
+            </Typography>
+        );
+    } else {
+        errorMessage = null;
     }
 
     return (
@@ -70,29 +84,13 @@ const Home = () => {
                                 channels to see who is live and some other
                                 information.
                             </Typography>
-                            {!channelFound ? (
-                                <Typography variant="subtitle2" color="error">
-                                    No channels match that query
-                                </Typography>
-                            ) : null}
+                            {/* CONDITIONAL ERROR MESSAGE */}
+                            {errorMessage}
                             <ChannelSearch />
                         </Paper>
                     </Grid>
                     {/* CONDITIONAL FOR IMAGE APPEARING AT HOME PAGE */}
                     {image}
-                    {/* {channels.length < 1 ? (
-                        <Grid item xs={12} md={6} align="center">
-                            <Paper elevation={0} sx={{ maxWidth: 500 }}>
-                                <img
-                                    src={gameControl}
-                                    alt="game controllers dangling"
-                                    style={{ width: "80%" }}
-                                />
-                            </Paper>
-                        </Grid>
-                    ) : null}
-
-                    {!channelFound && null} */}
                 </Grid>
             </Box>
             <ChannelResults />

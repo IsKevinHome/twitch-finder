@@ -20,7 +20,7 @@ app.use(cors());
 // Validation middleware
 app.use((req, res, next) => {
     // this can be put in a node module.
-    cron.schedule("*/15 * * * *", () => {
+    cron.schedule("0 0 */1 * *", () => {
         validateToken();
     });
     next();

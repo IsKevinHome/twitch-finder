@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import Box from "@mui/material/Box";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
@@ -11,11 +11,11 @@ import TwitchContext from "../../context/TwitchContext";
 import axios from "axios";
 
 const ChannelSearch = () => {
-    const { text, setText, channels, setChannels, setChannelFound } =
+    const { text, setText, setChannels, setChannelFound } =
         useContext(TwitchContext);
 
     const searchChannels = async (text) => {
-        const response = await axios
+        await axios
             .get(`http://localhost:5000/search/${text}`)
             .then((response) => {
                 setChannels(response.data);
@@ -27,7 +27,10 @@ const ChannelSearch = () => {
                     setChannelFound(true);
                 }
             })
-            .catch((e) => console.log(e));
+            .catch((e) => {
+                setChannelFound(false);
+                console.log("searchChannels ERROR:", e);
+            });
     };
 
     function handleChange(e) {
@@ -36,7 +39,7 @@ const ChannelSearch = () => {
 
     async function handleSubmit(e) {
         // e.preventDefault();
-        const data = await searchChannels(text);
+        await searchChannels(text);
         setText("");
     }
     return (

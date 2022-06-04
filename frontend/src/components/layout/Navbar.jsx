@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import * as React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
@@ -6,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 
 function ElevationScroll(props) {
@@ -41,44 +41,55 @@ export default function ElevateAppBar(props) {
             <ElevationScroll {...props}>
                 <AppBar sx={{ backgroundColor: "white" }}>
                     <Toolbar>
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            component="a"
-                            href="/"
-                            sx={{
-                                mr: 2,
-                                display: { md: "flex" },
-                                fontFamily: "dimis",
-                                textDecoration: "none",
-                                color: "black",
-                            }}
-                        >
-                            <span style={{ color: "#6441A4", marginRight: 10 }}>
-                                Twitch
-                            </span>
-                            Finder
-                        </Typography>
+                        <Link to="/">
+                            <Typography
+                                variant="h5"
+                                noWrap
+                                component="a"
+                                href="/"
+                                sx={{
+                                    mr: 2,
+                                    display: { md: "flex" },
+                                    fontFamily: "dimis",
+                                    textDecoration: "none",
+                                    color: "black",
+                                }}
+                            >
+                                <span
+                                    style={{
+                                        color: "#6441A4",
+                                        marginRight: 10,
+                                    }}
+                                >
+                                    Twitch
+                                </span>
+                                Finder
+                            </Typography>
+                        </Link>
                         <Box sx={{ flexGrow: 1 }}></Box>
 
-                        <Button
-                            sx={{
-                                fontFamily: "dimis",
-                                color: "black",
-                                fontSize: 20,
-                            }}
-                        >
-                            Home
-                        </Button>
-                        <Button
-                            sx={{
-                                fontFamily: "dimis",
-                                color: "black",
-                                fontSize: 20,
-                            }}
-                        >
-                            About
-                        </Button>
+                        <Link to="/">
+                            <Button
+                                sx={{
+                                    fontFamily: "dimis",
+                                    color: "black",
+                                    fontSize: 20,
+                                }}
+                            >
+                                Home
+                            </Button>
+                        </Link>
+                        <Link to="/about">
+                            <Button
+                                sx={{
+                                    fontFamily: "dimis",
+                                    color: "black",
+                                    fontSize: 20,
+                                }}
+                            >
+                                About
+                            </Button>
+                        </Link>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>

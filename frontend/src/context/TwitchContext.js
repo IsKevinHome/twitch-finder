@@ -5,7 +5,7 @@ const TwitchContext = createContext();
 export function TwitchProvider({ children }) {
     const [text, setText] = useState("");
     const [channels, setChannels] = useState([]);
-    const [channelFound, setChannelFound] = useState(true);
+    const [channelFound, setChannelFound] = useState();
 
     return (
         <TwitchContext.Provider

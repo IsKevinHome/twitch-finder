@@ -1,7 +1,7 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import { Button, CardActionArea, CardActions, Badge } from "@mui/material";
+import { CardActionArea, Badge } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 const ChannelItem = ({ channel }) => {

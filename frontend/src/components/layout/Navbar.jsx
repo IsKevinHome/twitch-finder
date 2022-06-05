@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import * as React from "react";
+import { useContext } from "react";
+import TwitchContext from "../../context/TwitchContext";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -35,18 +37,23 @@ ElevationScroll.propTypes = {
 };
 
 export default function ElevateAppBar(props) {
+    const { setChannels, setChannelFound } = useContext(TwitchContext);
+
+    const resetData = () => {
+        setChannels([]);
+        setChannelFound();
+    };
+
     return (
         <React.Fragment>
             <CssBaseline />
             <ElevationScroll {...props}>
                 <AppBar sx={{ backgroundColor: "white" }}>
                     <Toolbar>
-                        <Link to="/">
+                        <Link to="/" onClick={resetData}>
                             <Typography
                                 variant="h5"
                                 noWrap
-                                component="a"
-                                href="/"
                                 sx={{
                                     mr: 2,
                                     display: { md: "flex" },
@@ -70,6 +77,7 @@ export default function ElevateAppBar(props) {
 
                         <Link to="/">
                             <Button
+                                onClick={resetData}
                                 sx={{
                                     fontFamily: "dimis",
                                     color: "black",

@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import ChannelItem from "./ChannelItem";
 
 const ChannelResults = () => {
-    const { channels, text } = useContext(TwitchContext);
+    const { channels } = useContext(TwitchContext);
 
     return (
         <Box sx={{ flexGrow: 1 }}>

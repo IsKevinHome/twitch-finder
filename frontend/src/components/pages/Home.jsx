@@ -11,10 +11,10 @@ import Paper from "@mui/material/Paper";
 import ChannelResults from "../channels/ChannelResults";
 
 const Home = () => {
-    const { text, channels, channelFound } = useContext(TwitchContext);
+    const { channels, channelFound } = useContext(TwitchContext);
 
     const minHeightConditional =
-        channels.length < 1 ? "calc(100vh - 64px" : "calc(50vh - 64px";
+        channels.length < 1 ? "calc(100vh - 64px" : "calc(50vh - 64px)";
 
     const justifyHeightConditional = channels.length < 1 ? "center" : "left";
 
@@ -22,12 +22,20 @@ const Home = () => {
     let image;
     if (channels.length < 1 && !channelFound) {
         image = (
-            <Grid item xs={12} md={6} align="center">
-                <Paper elevation={0} sx={{ maxWidth: 500 }}>
+            <Grid
+                item
+                xs={12}
+                md={6}
+                align="center"
+                sx={{
+                    display: { xs: "none", lg: "block" },
+                }}
+            >
+                <Paper elevation={0}>
                     <img
                         src={gameControl}
                         alt="game controllers dangling"
-                        style={{ width: "80%" }}
+                        style={{ width: "70%" }}
                     />
                 </Paper>
             </Grid>
@@ -61,6 +69,7 @@ const Home = () => {
                     direction="row"
                     justifyContent={justifyHeightConditional}
                     alignItems="center"
+                    // not changing on mobile, check?
                     style={{ minHeight: minHeightConditional }}
                 >
                     <Grid item xs={12} md={6} align="center">

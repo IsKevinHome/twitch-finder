@@ -1,7 +1,7 @@
 const { getToken, validateToken, twitchSearch } = require("./twitch.js");
 const express = require("express");
 const redis = require("redis");
-const axios = require("axios").default;
+const axios = require("axios");
 const app = express();
 var cors = require("cors");
 var cron = require("node-cron");

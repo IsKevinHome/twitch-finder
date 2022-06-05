@@ -16,7 +16,7 @@ const ChannelSearch = () => {
 
     const searchChannels = async (text) => {
         await axios
-            .get(`http://localhost:5000/search/${text}`)
+            .get(`http://twitchfinder.herokuapp.com/search/${text}`)
             .then((response) => {
                 setChannels(response.data);
                 console.log(response.data);

@@ -4,6 +4,7 @@
     "description": "A backend for twitch finder, a twitch api app",
     "main": "index.js",
     "scripts": {
+        "start": "node index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",

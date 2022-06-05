@@ -17,6 +17,9 @@ client.connect();
 // MIDDLEWARE
 app.use(cors());
 
+// Middleware to reference the react 'build' for heroku
+app.use(express.static("build"));
+
 // Validation middleware
 app.use((req, res, next) => {
     // this can be put in a node module.
@@ -37,6 +40,7 @@ app.get("/search/:channels", async (req, res) => {
     res.send(results);
 });
 
-app.listen(5000, () => {
-    console.log(`App listening on port 5000`);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
 });

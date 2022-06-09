@@ -7,6 +7,22 @@ import ChannelItem from "./ChannelItem";
 const ChannelResults = () => {
     const { channels } = useContext(TwitchContext);
 
+    let render = () => {
+        try {
+            return (
+                <>
+                    {channels.map((res) => (
+                        <Grid item>
+                            <ChannelItem channel={res} key={res.id} />
+                        </Grid>
+                    ))}
+                </>
+            );
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid
@@ -17,11 +33,12 @@ const ChannelResults = () => {
                 alignItems="center"
                 sx={{ textAlign: "center" }}
             >
-                {channels.map((res) => (
+                {render()}
+                {/* {channels.map((res) => (
                     <Grid item>
                         <ChannelItem channel={res} />
                     </Grid>
-                ))}
+                ))} */}
             </Grid>
         </Box>
     );

@@ -16,16 +16,23 @@ const ChannelSearch = () => {
 
     const searchChannels = async (text) => {
         await axios
-            .get(`http://twitchfinder.herokuapp.com/search/${text}`)
+            .get(`https://twitchfinder.herokuapp.com/search/${text}`)
             .then((response) => {
-                setChannels(response.data);
-                console.log(response.data);
-
-                if (response.data.length === 0) {
+                if (!Array.isArray(response.data)) {
+                    console.log("not an array");
                     setChannelFound(false);
+                    return;
+                }
+
+                if (response.data.length === 0 || !response.data) {
+                    setChannelFound(false);
+                    return;
                 } else {
                     setChannelFound(true);
                 }
+
+                setChannels(response.data);
+                console.log(response.data);
             })
             .catch((e) => {
                 setChannelFound(false);
